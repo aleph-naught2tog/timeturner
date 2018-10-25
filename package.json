@@ -1,0 +1,23 @@
+{
+  "name": "timeturner",
+  "version": "1.0.0",
+  "description": "Lightweight dev tool for time-handling",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aleph-naught2tog/timeturner.git"
+  },
+  "author": "aleph-naught2tog",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleph-naught2tog/timeturner/issues"
+  },
+  "homepage": "https://github.com/aleph-naught2tog/timeturner#readme",
+  "dependencies": {
+    "jest": "^23.6.0",
+    "moment": "^2.22.2"
+  }
+}
