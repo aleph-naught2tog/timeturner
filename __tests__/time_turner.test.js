@@ -18,7 +18,7 @@ describe('initialization', () => {
 describe('changing days', () => {
   it('should do day math', () => {
     const format = 'MM/DD/YYYY HH:mm:ss';
-    const date = '11/7/2180';
+    const date = '11/7/2180 10:00:12';
     const tt = new TimeTurner(date, format);
     const asMoment = moment(date, format);
 
@@ -33,7 +33,7 @@ describe('changing days', () => {
 
   it('should do hour math', () => {
     const format = 'MM/DD/YYYY HH:mm:ss';
-    const date = '01/05/2010';
+    const date = '01/05/2010  12:00:12';
     const tt = new TimeTurner(date, format);
     const asMoment = moment(date, format);
 
@@ -56,7 +56,7 @@ describe('changing days', () => {
 describe('should iterate', () => {
   it('add days continously', () => {
     const format = 'MM/DD/YYYY HH:mm:ss';
-    const date = '11/7/2180';
+    const date = '11/7/2180 12:10:12';
     const tt = new TimeTurner(date, format);
     const asMoment = moment(date, format);
 
@@ -71,7 +71,7 @@ describe('should iterate', () => {
 
   it('add hours continously', () => {
     const format = 'MM/DD/YYYY HH:mm:ss';
-    const date = '11/7/2180';
+    const date = '11/7/2180 01:10:12';
     const tt = new TimeTurner(date, format);
     const asMoment = moment(date, format);
 
@@ -86,7 +86,7 @@ describe('should iterate', () => {
 
   it('subtract days continously', () => {
     const format = 'MM/DD/YYYY HH:mm:ss';
-    const date = '11/7/2180';
+    const date = '11/7/2180 23:10:12';
     const tt = new TimeTurner(date, format);
     const asMoment = moment(date, format);
 
@@ -101,16 +101,22 @@ describe('should iterate', () => {
 
   it('subtract hours continously', () => {
     const format = 'MM/DD/YYYY HH:mm:ss';
-    const date = '11/7/2180';
-    const tt = new TimeTurner(date, format);
-    const asMoment = moment(date, format);
+    const date = '11/7/2180 10:44:12';
+    let tt = new TimeTurner(date, format);
+    // const tt = new TimeTurner(date, format);
+    let asMoment = moment(date, format);
 
-    let counter = 0;
-    const times = 13;
-    for (let _ of tt.byHours().backwards.until(asMoment.subtract(times, 'hours'))) {
-      counter += 1;
+
+    for (let times of [4,12,44,0,1,12,2]) {
+      let counter = 0;
+      for (let _ of tt.byHours().backwards.until(asMoment.subtract(times, 'hours'))) {
+        counter += 1;
+      }
+      expect(counter).toBe(times);
+      expect(tt.toString()).toBe(asMoment.toString());
+
+      tt.restart();
+      asMoment = moment(date, format);
     }
-    expect(counter).toBe(times);
-    expect(tt.toString()).toBe(asMoment.toString());
   });
 });
