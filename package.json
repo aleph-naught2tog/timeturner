@@ -4,7 +4,7 @@
   "description": "Lightweight dev tool for time-handling",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/aleph-naught2tog/timeturner#readme",
   "dependencies": {
-    "jest": "^23.6.0",
     "moment": "^2.22.2"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
   }
 }
