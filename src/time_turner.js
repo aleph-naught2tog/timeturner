@@ -66,4 +66,6 @@ function TimeTurner(initialTime = moment(), format) {
   });
 }
 
-module.exports = TimeTurner;
+if (module) {
+  module.exports = TimeTurner;
+}
