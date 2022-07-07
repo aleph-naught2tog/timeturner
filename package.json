@@ -19,7 +19,7 @@
   "dependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
-    "moment": "^2.22.2"
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "jest": "^23.6.0"
